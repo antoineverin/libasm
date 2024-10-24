@@ -5,6 +5,7 @@ SFLAGS		:= -f elf64
 OBJS_DIR	:= objs
 
 SRCS		:= \
+	ft_strcpy.s \
 	ft_strlen.s \
 	ft_write.s
 OBJS		:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS))
