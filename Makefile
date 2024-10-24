@@ -19,7 +19,7 @@ $(OBJS_DIR)/%.o: %.s
 	mkdir -p objs
 	$(SC) $(SFLAGS) -o $@ $<
 
-test: $(NAME)
+test: $(NAME) test.c
 	cc test.c $(NAME) -o test
 
 clean:
