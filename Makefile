@@ -5,6 +5,7 @@ SFLAGS		:= -f elf64
 OBJS_DIR	:= objs
 
 SRCS		:= \
+	ft_read.s \
 	ft_strcmp.s \
 	ft_strcpy.s \
 	ft_strdup.s \
