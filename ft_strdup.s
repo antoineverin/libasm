@@ -10,8 +10,7 @@ ft_strdup:
 	inc rax
 	mov rdi, rax
 	call malloc wrt ..plt
-	pop rdi
-	mov rsi, rdi
+	pop rsi
 	mov rdi, rax
 	call ft_strcpy
 	ret
