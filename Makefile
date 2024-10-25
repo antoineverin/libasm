@@ -28,9 +28,9 @@ test: $(NAME) test.c
 	cc test.c $(NAME) -o test
 
 clean:
-	rm $(OBJS)
+	rm -rf $(OBJS)
 
 fclean: clean
-	rm $(NAME)
+	rm -rf $(NAME) $(TEST_NAME)
 
 re: fclean $(NAME)
