@@ -18,8 +18,10 @@ $(NAME): $(OBJS)
 
 all: $(NAME)
 
-$(OBJS_DIR)/%.o: %.s
-	mkdir -p objs
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+
+$(OBJS_DIR)/%.o: %.s | $(OBJS_DIR)
 	$(SC) $(SFLAGS) -o $@ $<
 
 test: $(NAME) test.c
