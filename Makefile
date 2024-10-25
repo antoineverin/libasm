@@ -1,7 +1,9 @@
 NAME		:= libasm.a
+TEST_NAME	:= test
 SC			:= nasm
 SFLAGS		:= -f elf64
 
+TESTS_DIR	:= tests
 OBJS_DIR	:= objs
 
 SRCS		:= \
@@ -12,6 +14,10 @@ SRCS		:= \
 	ft_strlen.s \
 	ft_write.s
 OBJS		:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS))
+TESTS_SRCS	:= $(addprefix $(TESTS_DIR)/, \
+		test.c \
+		test_utils.c \
+	)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
@@ -24,8 +30,11 @@ $(OBJS_DIR):
 $(OBJS_DIR)/%.o: %.s | $(OBJS_DIR)
 	$(SC) $(SFLAGS) -o $@ $<
 
-test: $(NAME) test.c
-	cc test.c $(NAME) -o test
+$(TEST_NAME): $(NAME) $(TESTS_SRCS)
+	cc $(TESTS_SRCS) $(NAME) -I $(TESTS_DIR) -o $(TEST_NAME)
+
+run_test: $(TEST_NAME)
+	./$(TEST_NAME)
 
 clean:
 	rm -rf $(OBJS)
