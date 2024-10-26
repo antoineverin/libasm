@@ -5,8 +5,8 @@ ft_strcmp:
 	mov rcx, 0
 .loop:
 	mov al, [rdi + rcx]
-	mov bl, [rsi + rcx]
-	cmp al, bl
+	mov dl, [rsi + rcx]
+	cmp al, dl
 	jne .end
 	cmp al, 0
 	je .end
@@ -14,6 +14,6 @@ ft_strcmp:
 	jmp .loop
 .end:
 	movzx rax, al
-	movzx rbx, bl
-	sub rax, rbx
+	movzx rdx, dl
+	sub rax, rdx
 	ret
