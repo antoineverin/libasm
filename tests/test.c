@@ -53,6 +53,12 @@ void test_write() {
 
 #ifdef BONUS
 
+void test_list_front_push() {
+	print_test("ft_list_push_front");
+	do_list_push_front("basic", (int[4]) {2, 3, 4, 5}, 4, 1);
+	do_list_push_front("null", NULL, 0, 1);
+}
+
 void test_list_size() {
 	print_test("ft_list_size");
 	do_list_size("basic", (int[5]) {1, 2, 3, 4, 5}, 5);
@@ -73,6 +79,7 @@ int main() {
 	test_write();
 
 #ifdef BONUS
+	test_list_front_push();
 	test_list_size();
 #endif
 }

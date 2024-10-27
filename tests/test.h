@@ -34,8 +34,10 @@ typedef struct s_list {
 	struct s_list	*next;
 }	t_list;
 
+extern void ft_list_push_front(t_list **begin, void *data);
 extern size_t ft_list_size(t_list *lst);
 
+void do_list_push_front(char *name, int *data, size_t size, int new);
 void do_list_size(char *name, int *data, size_t expect);
 
 #endif

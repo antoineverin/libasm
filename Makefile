@@ -16,6 +16,7 @@ SRCS		:= \
 	ft_strlen.s \
 	ft_write.s
 SRCS_BONUS	:= \
+	ft_list_push_front.s \
 	ft_list_size.s
 OBJS		:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS))
 OBJS_BONUS	:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS_BONUS))

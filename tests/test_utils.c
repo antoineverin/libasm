@@ -102,6 +102,21 @@ void free_lst(t_list *lst) {
 	free(lst);
 }
 
+void do_list_push_front(char *name, int *data, size_t size, int new) {
+	t_list *lst = construct_list(size, data);
+	ft_list_push_front(&lst, &new);
+	size_t ns = ft_list_size(lst);
+	printf("%s\t", name);
+	printf(" size ");
+	if (ns != size + 1) printf(RED "%ld != %ld" RESET, size + 1, ns);
+	else printf(GREEN "OK" RESET);
+	printf(" front ");
+	if (*((int *)lst->data) != new) printf(RED "%d != %d" RESET, new, *((int *)lst->data));
+	else printf(GREEN "OK" RESET);
+	printf("\n");
+	free_lst(lst);
+}
+
 void do_list_size(char *name, int *data, size_t expect) {
 	t_list *lst = construct_list(expect, data);
 	size_t got = ft_list_size(lst);
