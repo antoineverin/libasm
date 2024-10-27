@@ -1,3 +1,5 @@
 libasm.a
 objs/
 test
+libasm_bonus.a
+test_bonus
