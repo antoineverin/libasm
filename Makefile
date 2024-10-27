@@ -1,7 +1,7 @@
 NAME		:= libasm.a
-TEST_NAME	:= test
-SC			:= nasm
-SFLAGS		:= -f elf64
+TEST		:= test
+ASMC		:= nasm
+ASMFLAGS	:= -f elf64
 
 TESTS_DIR	:= tests
 OBJS_DIR	:= objs
@@ -28,13 +28,13 @@ $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)/%.o: %.s | $(OBJS_DIR)
-	$(SC) $(SFLAGS) -o $@ $<
+	$(ASMC) $(ASMFLAGS) -o $@ $<
 
-$(TEST_NAME): $(NAME) $(TESTS_SRCS)
-	cc $(TESTS_SRCS) $(NAME) -I $(TESTS_DIR) -o $(TEST_NAME)
+$(TEST): $(NAME) $(TESTS_SRCS)
+	cc $(TESTS_SRCS) $(NAME) -I $(TESTS_DIR) -o $(TEST)
 
-run_test: $(TEST_NAME)
-	./$(TEST_NAME)
+run_test: $(TEST)
+	./$(TEST)
 
 clean:
 	rm -rf $(OBJS)
