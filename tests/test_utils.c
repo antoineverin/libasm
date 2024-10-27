@@ -101,6 +101,17 @@ void free_lst(t_list *lst) {
 	free(lst);
 }
 
+void do_list_size(char *name, int *data, size_t expect) {
+	t_list *lst = construct_list(expect, data);
+	size_t got = ft_list_size(lst);
+	printf("%s\t", name);
+	printf(" result ");
+	if (got != expect) printf(RED "%ld != %ld" RESET, expect, got);
+	else printf(GREEN "OK" RESET);
+	printf("\n");
+	free_lst(lst);
+}
+
 #endif
 
 void do_write(char *name, int fd, char *str, size_t count, int ofd) {

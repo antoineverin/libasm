@@ -34,4 +34,8 @@ typedef struct s_list {
 	struct s_list	*next;
 }	t_list;
 
+extern size_t ft_list_size(t_list *lst);
+
+void do_list_size(char *name, int *data, size_t expect);
+
 #endif

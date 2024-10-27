@@ -53,6 +53,13 @@ void test_write() {
 
 #ifdef BONUS
 
+void test_list_size() {
+	print_test("ft_list_size");
+	do_list_size("basic", (int[5]) {1, 2, 3, 4, 5}, 5);
+	do_list_size("empty", (int[1]) {1}, 1);
+	do_list_size("empty", NULL, 0);
+}
+
 #endif
 
 int main() {
@@ -66,5 +73,6 @@ int main() {
 	test_write();
 
 #ifdef BONUS
+	test_list_size();
 #endif
 }

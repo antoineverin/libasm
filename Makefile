@@ -15,7 +15,8 @@ SRCS		:= \
 	ft_strdup.s \
 	ft_strlen.s \
 	ft_write.s
-SRCS_BONUS	:=
+SRCS_BONUS	:= \
+	ft_list_size.s
 OBJS		:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS))
 OBJS_BONUS	:= $(patsubst %.s, $(OBJS_DIR)/%.o, $(SRCS_BONUS))
 TESTS_SRCS	:= $(addprefix $(TESTS_DIR)/, \
