@@ -82,8 +82,9 @@ void do_strlen(char *name, char *source) {
 t_list *construct_list(size_t count, int *data) {
 	if (!data) return NULL;
 	t_list *lst = calloc(1, sizeof(t_list));
+	lst->data = &(data[0]);
 	t_list *crt = lst;
-	for (size_t i = 0; i < count; i++) {
+	for (size_t i = 0; i < count - 1; i++) {
 		crt->data = &(data[i]);
 		crt->next = calloc(1, sizeof(t_list));
 		crt = crt->next;
