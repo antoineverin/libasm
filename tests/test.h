@@ -26,3 +26,12 @@ void do_strcpy(char *name, char *source);
 void do_strdup(char *name, char *source);
 void do_strlen(char *name, char *source);
 void do_write(char *name, int fd, char *str, size_t count, int ofd);
+
+#ifdef BONUS
+
+typedef struct s_list {
+	void			*data;
+	struct s_list	*next;
+}	t_list;
+
+#endif

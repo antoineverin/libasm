@@ -77,6 +77,32 @@ void do_strlen(char *name, char *source) {
 	printf("\n");
 }
 
+#ifdef BONUS
+
+t_list *construct_list(size_t count, int *data) {
+	if (!data) return NULL;
+	t_list *lst = calloc(1, sizeof(t_list));
+	t_list *crt = lst;
+	for (size_t i = 0; i < count; i++) {
+		crt->data = &(data[i]);
+		crt->next = calloc(1, sizeof(t_list));
+		crt = crt->next;
+	}
+	return lst;
+}
+
+void free_lst(t_list *lst) {
+	if (!lst) return;
+	while (lst->next) {
+		t_list *nxt = lst->next;
+		free(lst);
+		lst = nxt;
+	}
+	free(lst);
+}
+
+#endif
+
 void do_write(char *name, int fd, char *str, size_t count, int ofd) {
 	errno = 0;
 	int a = write(fd, str, count);

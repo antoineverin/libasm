@@ -51,6 +51,10 @@ void test_write() {
 	do_write("null", pfd[1], NULL, 1, -1);				(close(pfd[1]), close(pfd[0]));
 }
 
+#ifdef BONUS
+
+#endif
+
 int main() {
 	signal(SIGPIPE, SIG_IGN);
 
@@ -60,4 +64,7 @@ int main() {
 	test_strdup();
 	test_strlen();
 	test_write();
+
+#ifdef BONUS
+#endif
 }
