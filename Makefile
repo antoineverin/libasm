@@ -57,3 +57,5 @@ fclean: clean
 	rm -rf $(NAME) $(TEST_NAME) $(NAME_BONUS) $(TEST_BONUS)
 
 re: fclean $(NAME)
+
+.PHONY: bonus all run_test run_test_bonus clean fclean re
