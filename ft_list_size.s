@@ -3,13 +3,11 @@ section .text
 
 ft_list_size:
 	mov rax, 0
-	cmp rdi, 0
-	je .end
 .loop:
-	cmp byte [rdi], 0
-	je .end
+	test rdi, rdi
+	jz .end
 	inc rax
-	mov rdi, [rdi + 8]
+	mov rdi, qword [rdi + 8]
 	jmp .loop
 .end:
 	ret
