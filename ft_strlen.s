@@ -3,11 +3,13 @@ section .text
 
 ft_strlen:
 	mov rcx, 0
+
 .loop:
 	cmp byte [rdi + rcx], 0
-	je .done
+	je .end
 	inc rcx
 	jmp .loop
-.done:
+
+.end:
 	mov rax, rcx
 	ret

@@ -3,6 +3,7 @@ section .text
 
 ft_strcmp:
 	mov rcx, 0
+
 .loop:
 	mov al, [rdi + rcx]
 	mov dl, [rsi + rcx]
@@ -12,6 +13,7 @@ ft_strcmp:
 	je .end
 	inc rcx
 	jmp .loop
+
 .end:
 	movzx rax, al
 	movzx rdx, dl

@@ -3,13 +3,15 @@ section .text
 
 ft_strcpy:
 	mov rcx, 0
+
 .loop:
 	mov al, [rsi + rcx]
 	mov [rdi + rcx], al
 	cmp byte [rsi + rcx], 0
-	je .done
+	je .end
 	inc rcx
 	jmp .loop
-.done:
+
+.end:
 	mov rax, rdi
 	ret

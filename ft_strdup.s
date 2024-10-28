@@ -17,6 +17,7 @@ ft_strdup:
 	mov rdi, rax
 	call ft_strcpy
 	ret
+
 .error:
 	call __errno_location wrt ..plt
 	pop rdi
