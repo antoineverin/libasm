@@ -2,6 +2,10 @@ section .text
 	global ft_strcpy
 
 ft_strcpy:
+	push rdi
+	push rsi
+	push rcx
+
 	mov rcx, 0
 
 .loop:
@@ -14,4 +18,9 @@ ft_strcpy:
 
 .end:
 	mov rax, rdi
+
+	pop rcx
+	pop rsi
+	pop rdi
+
 	ret

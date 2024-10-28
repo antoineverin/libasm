@@ -7,6 +7,9 @@ section .text
 
 ft_strdup:
 	push rdi
+	push rsi
+
+	push rdi
 	call ft_strlen
 	inc rax
 	mov rdi, rax
@@ -16,11 +19,16 @@ ft_strdup:
 	pop rsi
 	mov rdi, rax
 	call ft_strcpy
-	ret
+	jmp .end
 
 .error:
 	call __errno_location wrt ..plt
-	pop rdi
 	mov dword [rax], 12
 	xor rax, rax
+	jmp .end
+
+.end:
+	pop rsi
+	pop rdi
+
 	ret

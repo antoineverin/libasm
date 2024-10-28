@@ -2,6 +2,8 @@ section .text
 	global ft_list_size
 
 ft_list_size:
+	push rdi
+
 	mov rax, 0
 
 .loop:
@@ -12,4 +14,6 @@ ft_list_size:
 	jmp .loop
 
 .end:
+	pop rdi
+
 	ret

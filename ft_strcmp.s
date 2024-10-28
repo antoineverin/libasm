@@ -2,6 +2,10 @@ section .text
 	global ft_strcmp
 
 ft_strcmp:
+	push rdi
+	push rsi
+	push rdx
+
 	mov rcx, 0
 
 .loop:
@@ -18,4 +22,9 @@ ft_strcmp:
 	movzx rax, al
 	movzx rdx, dl
 	sub rax, rdx
+
+	pop rdx
+	pop rsi
+	pop rdi
+
 	ret
